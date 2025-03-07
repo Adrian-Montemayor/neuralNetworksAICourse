@@ -4,6 +4,7 @@ import tensorflow as tf
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
 
 print(f"Tensorflow version: {tf.__version__}")
 
@@ -64,3 +65,9 @@ print(y_pred)
 y_pred = (y_pred > 0.5)
 print(y_pred)
 print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), 1))
+
+
+print("Making the Confusion Matrix...")
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+print(accuracy_score(y_test, y_pred))
