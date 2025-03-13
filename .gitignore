@@ -1,2 +1,5 @@
 .vscode
 *.csv
+single_prediction/
+test_set/
+training_set/
